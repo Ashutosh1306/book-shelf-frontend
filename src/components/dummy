@@ -1,0 +1,105 @@
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "/AuthProvider"; 
+function Login({ setIsLoggedIn }) {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [bookToAdd, setBookToAdd] = useState(null);
+  const navigate = useNavigate();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      // Send a POST request to your server for user login
+      const response = await axios.post("http://localhost:5000/api/login", formData);
+
+      if (response.status === 200) {
+        localStorage.setItem("authToken", response.data.token);
+        setIsLoggedIn(true);
+        alert("Login successful!");
+         // Check if a selected book is available and add it to the database
+         if (bookToAdd) {
+          await AddBooktoDB(bookToAdd);
+        }
+        else{
+          alert("booknot found");
+        }
+        navigate("/mybookshelf"); // Redirect to the protected page (e.g., My Book Shelf)
+      } else {
+        alert("Login failed. Please check your credentials.");
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      alert("Error logging in. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+    const authToken = localStorage.getItem("authToken");
+  };
+  const AddBooktoDB = async (book) => {
+    setIsLoading(true);
+    try {
+      const response = await axios.post("http://localhost:5000/api/books", { book });
+      if (response.status === 200) {
+        setSuccess(true);
+        alert("Book Added Succussfully");
+        setTimeout(() => {
+          setSuccess(false);
+        }, 3000);
+      } else if (response.status === 400) {
+        alert("Book already exists");
+      } else {
+        alert(response.status);
+      }
+    } catch (error) {
+      console.error("Error adding book:", error);
+      alert(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  
+
+  return (
+    <div className="signup-container">
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit} className="signup-form">
+        <label htmlFor="email">Email: *</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleInputChange}
+          required
+        />
+        <label htmlFor="password">Password: *</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleInputChange}
+          required
+        />
+        <button type="submit" disabled={isLoading} className="signup-button">
+          {isLoading ? "Logging in..." : "Log In"}
+        </button>
+      </form>
+    </div>
+  );
+}
+
+export default Login;

@@ -1,0 +1,233 @@
+/* common.css */
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style for the book cards */
+.container {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent cards from wrapping to the next row */
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+.card-container {
+  display: flex;
+}
+
+.card {
+  flex: 0 0 calc(25% - 30px); /* Adjust the width as needed and consider margin and padding */
+  margin: 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  transition: box-shadow 0.3s;
+  width: 100%; /* Added to make cards take up the full width of their container */
+}
+.card1 { /* Adjust the width as needed and consider margin and padding */
+  flex: 0 0 calc(40% - 30px);
+  margin: 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  transition: box-shadow 0.3s;
+  width: 100%; /* Added to make cards take up the full width of their container */
+ display: flex;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-text {
+  margin: 5px 0;
+}
+
+/* Modal styles */
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog {
+  position: relative;
+  margin: 10% auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.modal-content {
+  width: 100%;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.book-container {
+  display: flex; /* Use flexbox to arrange elements in a row */
+  align-items: center; /* Center vertically within the container */
+  margin-bottom: 20px; /* Add some spacing between book containers */
+}
+.currentupdate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rating-container {
+  margin-bottom: 20px;
+}
+
+.progress-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-bar {
+  width: 300%;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+}
+
+.progress-label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  display: block;
+}
+.button-container button{
+  background-color: aqua;
+  height: 20px;
+  width: 200px;
+}
+.book-card-container {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  margin: 10px 0;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+.book-card-current {
+  display: flex;
+  flex-direction: column;
+  width: 70%; /* Adjust the width as needed */
+  padding: 10px;
+}
+.currentstatus {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.rating-update,
+.progress-bar-update,
+.button-update {
+  margin-top: 10px;
+}
+/* Styling for the bookshelf container */
+/* Styling for the scrollable bookshelf section */
+.mybookshelf-container {     
+  display: inline-flex;  /* Use inline-flex to prevent wrapping */
+  justify-content: flex-start;
+  max-height: auto;      /* Reset maximum height to auto */
+}
+.bookshelf-wrap {
+  overflow-x: auto;       /* Enable horizontal scrollbar */
+  white-space: nowrap;   /* Prevent text wrapping */
+  max-height: auto;      /* Reset maximum height to auto */
+}
+.mybookshelf-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px; /* Set a specific width that fits your design */
+}
+.mybookshelf-card {
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 250px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;     /* Hide overflowing content */
+  display: inline-block; /* Display cards in a row */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+.card-text {
+  margin-top: 5px;
+}
+
+.mybookshelf-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.mybookshelf-card:hover {
+  transform: scale(1.05); /* Enlarge the card on hover */
+}
+.btn {
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+.btn-success {
+  background-color: #28a745; /* Customize the success button color */
+}
+
+.btn-danger {
+  background-color: #dc3545; /* Customize the danger button color */
+  color: #fff; /* Set text color for danger buttons */
+}
+.form-control.mb-3 {
+  margin-bottom: 20px;
+}
+

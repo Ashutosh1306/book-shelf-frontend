@@ -1,0 +1,174 @@
+.books-container {
+  margin: 20px;
+  padding: 20px;
+}
+
+.books-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.book-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 300px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.book-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.book-details {
+  margin-top: 10px;
+}
+
+.book-details h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.book-details p {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+/* Add more styles as needed */
+/* comments.css (or your preferred CSS file) */
+
+/* Styles for the comments container */
+.comments-container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+/* Styles for individual comments */
+.comment {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style the comment input field */
+.comment-input textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical; /* Allow vertical resizing */
+}
+
+/* Style the comment submit button */
+.comment-input button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Style the close button for the modal */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #ff5733; /* Change color on hover */
+}
+
+/* Style the modal container */
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  z-index: 9999;
+  overflow: auto;
+}
+
+/* Style the modal content */
+/* Style the close button for the modal */
+/* Style the close button for the modal */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #ff5733; /* Change color on hover */
+}
+
+/* Style the modal container */
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  z-index: 9999;
+  overflow: auto;
+}
+
+/* Style the modal content */
+.modal-content {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 90%; /* Adjust the width as needed */
+  max-width: 2000px; /* Maximum width for larger screens */
+  margin: 0 auto; /* Center horizontally */
+  padding: 40px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: auto;
+}
+
+/* Style for small screens */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    max-width: 95%;
+  }
+}
+
+
+/* Additional styles can be added as needed */
+button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
